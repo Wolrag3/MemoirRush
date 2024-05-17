@@ -36,15 +36,8 @@
             add_day_task = new Button();
             add_week_task = new Button();
             week_textbox = new TextBox();
-            create_file = new Button();
-            append_to_file = new Button();
             todays_list = new CheckedListBox();
-            checksheet = new Button();
-            get_file = new Button();
             openFileDialog = new OpenFileDialog();
-            remove = new Button();
-            serialize_button = new Button();
-            Deserialize_button = new Button();
             label2 = new Label();
             label3 = new Label();
             _Sticky_notes_richtextbox = new RichTextBox();
@@ -61,7 +54,6 @@
             RichtextBox_button = new Button();
             vScrollBar_richtextbox = new VScrollBar();
             Jukebox_button = new MaterialSkin.Controls.MaterialButton();
-            
             SuspendLayout();
             // 
             // today
@@ -135,26 +127,6 @@
             week_textbox.TabIndex = 12;
             week_textbox.TextChanged += week_textbox_TextChanged;
             // 
-            // create_file
-            // 
-            create_file.Location = new Point(1362, 86);
-            create_file.Name = "create_file";
-            create_file.Size = new Size(70, 58);
-            create_file.TabIndex = 13;
-            create_file.Text = "Create A New File";
-            create_file.UseVisualStyleBackColor = true;
-            create_file.Click += create_file_Click;
-            // 
-            // append_to_file
-            // 
-            append_to_file.Location = new Point(1388, 150);
-            append_to_file.Name = "append_to_file";
-            append_to_file.Size = new Size(78, 58);
-            append_to_file.TabIndex = 14;
-            append_to_file.Text = "Append To File";
-            append_to_file.UseVisualStyleBackColor = true;
-            append_to_file.Click += append_to_file_Click;
-            // 
             // todays_list
             // 
             todays_list.FormattingEnabled = true;
@@ -164,58 +136,9 @@
             todays_list.TabIndex = 15;
             todays_list.SelectedIndexChanged += todays_list_SelectedIndexChanged;
             // 
-            // checksheet
-            // 
-            checksheet.Location = new Point(1446, 8);
-            checksheet.Name = "checksheet";
-            checksheet.Size = new Size(70, 72);
-            checksheet.TabIndex = 16;
-            checksheet.Text = "Check if Sheet exist";
-            checksheet.UseVisualStyleBackColor = true;
-            checksheet.Click += checksheet_Click;
-            // 
-            // get_file
-            // 
-            get_file.Location = new Point(1438, 86);
-            get_file.Name = "get_file";
-            get_file.Size = new Size(78, 58);
-            get_file.TabIndex = 18;
-            get_file.Text = "Get the File";
-            get_file.UseVisualStyleBackColor = true;
-            get_file.Click += get_file_Click;
-            // 
             // openFileDialog
             // 
             openFileDialog.FileName = "openFileDialog";
-            // 
-            // remove
-            // 
-            remove.Location = new Point(1362, 18);
-            remove.Name = "remove";
-            remove.Size = new Size(78, 53);
-            remove.TabIndex = 19;
-            remove.Text = "Remove";
-            remove.UseVisualStyleBackColor = true;
-            remove.Click += remove_Click;
-            // 
-            // serialize_button
-            // 
-            serialize_button.Location = new Point(1331, 363);
-            serialize_button.Name = "serialize_button";
-            serialize_button.Size = new Size(185, 50);
-            serialize_button.TabIndex = 20;
-            serialize_button.Text = "Serialize";
-            serialize_button.UseVisualStyleBackColor = true;
-            // 
-            // Deserialize_button
-            // 
-            Deserialize_button.Location = new Point(1331, 300);
-            Deserialize_button.Name = "Deserialize_button";
-            Deserialize_button.Size = new Size(185, 57);
-            Deserialize_button.TabIndex = 21;
-            Deserialize_button.Text = "Deserialize";
-            Deserialize_button.UseVisualStyleBackColor = true;
-            Deserialize_button.Click += Deserialize_button_Click;
             // 
             // label2
             // 
@@ -359,7 +282,6 @@
             Jukebox_button.UseAccentColor = false;
             Jukebox_button.UseVisualStyleBackColor = true;
             // 
-            // 
             // Todo
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -382,14 +304,7 @@
             Controls.Add(_Sticky_notes_richtextbox);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(Deserialize_button);
-            Controls.Add(serialize_button);
-            Controls.Add(remove);
-            Controls.Add(get_file);
-            Controls.Add(checksheet);
             Controls.Add(todays_list);
-            Controls.Add(append_to_file);
-            Controls.Add(create_file);
             Controls.Add(week_textbox);
             Controls.Add(add_week_task);
             Controls.Add(add_day_task);

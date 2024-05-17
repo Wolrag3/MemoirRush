@@ -145,7 +145,7 @@
 
         private void _Sticky_notes_richtextbox_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void RichtextBox_button_Click(object sender, EventArgs e)

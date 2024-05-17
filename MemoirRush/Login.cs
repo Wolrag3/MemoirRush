@@ -1,7 +1,6 @@
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
-using System.IO; // Added for File.Exists and File.ReadAllText
+using System.IO; // For File.Exists and File.ReadAllText
 using System.Windows.Forms;
 
 namespace MemoirRush
@@ -19,33 +18,39 @@ namespace MemoirRush
         {
             if (File.Exists(jsonfile))
             {
-                string jsonString = File.ReadAllText(jsonfile);
-                try
+                bool user_found = false;
+                bool pass_found = false;
+
+                // Read JSON file content
+                var User_json = File.ReadAllText(jsonfile);
+                string username = _usernameTextbox.Text;
+                string password = _passwordTextbox.Text;
+
+                // Deserialize JSON content to User object
+                User user = JsonConvert.DeserializeObject<User>(User_json);
+
+                // Check if the entered username matches the one in the User object
+                if (user.username == username)
                 {
-                    JObject jsonObject = JObject.Parse(jsonString);
-                    JArray names = (JArray)jsonObject["names"];
-
-                    bool found = false;
-
-                    foreach (JObject name in names.Children<JObject>())
-                    {
-                        if ((string)name["name"] == _usernameTextbox.Text)
-                        {
-                            found = true;
-                            Todo logged_In = new Todo();
-                            this.Hide();
-                            logged_In.Show();
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        MessageBox.Show("User Not Found!");
-                    }
+                    user_found = true;
                 }
-                catch (Exception ex)
+
+                // Check if the entered password matches the one in the User object
+                if (user.password == password)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    pass_found = true;
+                }
+
+                // If both username and password are correct, navigate to the Todo form
+                if (user_found && pass_found)
+                {
+                    this.Hide();
+                    Todo todo = new Todo();
+                    todo.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Login failed");
                 }
             }
             else
@@ -53,6 +58,7 @@ namespace MemoirRush
                 MessageBox.Show("Data file not found!");
             }
         }
+
         private void _SignUP_button_Click(object sender, EventArgs e)
         {
             SignUp signUp = new SignUp(jsonfile);
